@@ -6,6 +6,20 @@ router.get('/add', (req, res) => {
   res.render('add')
 });
 
+router.get('/employed', (req, res) => {
+  User.find({ job: {$ne:null} })
+    .then((data) => {
+      res.render('index', { users: data });
+    });
+});
+
+router.get('/unemployed', (req, res) => {
+  User.find({ job: null })
+    .then((data) => {
+      res.render('index', { users: data });
+    });
+});
+
 router.get('/', (req, res) => {
   User.find()
     .then((data) => {
@@ -13,19 +27,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/employed', function(req, res){
-  User.find({ job: {$ne:null} })
-    .then((data) => {
-      res.render('index', { users: data });
-    });
-});
 
-router.get('/unemployed', function(req, res){
-  User.find({ job: null })
-    .then((data) => {
-      res.render('index', { users: data });
-    });
-});
 
 router.get('/:id', (req, res) => {
   User.findOne({ id: parseInt(req.params.id) })
@@ -37,8 +39,14 @@ router.get('/:id', (req, res) => {
     })
 });
 
-// router.post('/users/add'), (req, res) => {
-//
-// }
+router.post('/users/add', (req, res) => {
+  new User(req.body).save()
+  .then((mongoObj) => {
+    res.redirect('/users')
+  })
+  .catch((err) => {
+    res.send(err);
+  })
+})
 
 module.exports = router;
