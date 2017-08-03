@@ -9,7 +9,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.get('/add', (req, res) => {
+router.get('/users/add', (req, res) => {
   res.render('addUser')
 })
 
