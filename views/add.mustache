@@ -7,9 +7,39 @@
   <body>
     <form action="/users/add" method="post">
       <label for="address">Address</label>
-      <input id="address" type="text" placeholder="Address">
+      <input id="city" type="text" placeholder="city" name="address">
+      <input id="country" type="text" name="country">
+
+      <label for="avatar">Avatar</label>
+      <input id="avatar" type="text" placeholder="Avatar" name="avatar">
+
+      <label for="company">Company</label>
+      <input id="company" type="text" placeholder="Company" name="company">
+
+      <label for="email">Email</label>
+      <input id="email" type="text" placeholder="Email" name="email">
+
+      <label for="job">Job</label>
+      <input id="job" type="text" placeholder="Job" name="job">
+
+      <label for="name">Name</label>
+      <input id="name" type="text" placeholder="Name" name="name">
+
+      <label for="phone">Phone</label>
+      <input id="phone" type="text" placeholder="Phone" name="phone">
+
+      <label for="skills">Skills</label>
+      <input id="skills" type="text" placeholder="Skills" name="skills">
+
+      <label for="univeristy">University</label>
+      <input id="univeristy" type="text" placeholder="University" name="university">
+
+      <label for="address">Username</label>
+      <input id="address" type="text" placeholder="Username" name="university">
 
     </form>
-    <button formmethod="get" formaction="/" type="button" name="button">Return to User List</button>
+    <a href="/users">
+      <h1>Return to User List</h1>
+    </a>
   </body>
 </html>
