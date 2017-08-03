@@ -13,8 +13,7 @@ app.set("port", 3000)
 
 app.use(express.static(path.join(__dirname, "public")))
 
-app.use(indexRoute)
-app.use(userRoute)
+app.use('/users', userRoute)
 
 // Start a db connect and list after it's connected.
 require("./dbConnection")
