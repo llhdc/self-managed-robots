@@ -5,6 +5,7 @@ const data = require("./models/data")
 const app = express()
 const indexRoute = require("./routes/index")
 const userRoute = require("./routes/users")
+const bodyParser = require("body-parser");
 
 app.engine("mustache", mustacheExpress())
 app.set("views", "./views")
